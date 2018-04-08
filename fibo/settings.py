@@ -26,7 +26,7 @@ SECRET_KEY = 'g5bzk$$vh^h48cmxj4h++nla5=kshd)^fuu2&w8e1dabv3!goi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
@@ -75,27 +75,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'fibo.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-DATABASES = {
-    'default': {
-        # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # Or path to database file if using sqlite3.
-        'NAME': 'fibo',
-        # Not used with sqlite3.
-        'USER': '',
-        # Not used with sqlite3.
-        'PASSWORD': '',
-        # Set to empty string for localhost. Not used with sqlite3.
-        'HOST': 'localhost',
-        # Set to empty string for default. Not used with sqlite3.
-        # 'PORT': '',
-        # 'OPTIONS': {
-        #    'init_command': 'SET storage_engine=MyISAM', 'local_infile': 1, },
-    }
-}
 
+DATABASES = {}
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -146,3 +129,9 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 # )
 MEDIA_ROOT = ''
 MEDIA_URL = '/media/'
+
+
+try:
+    from fibo.local_settings import *
+except ImportError as e:
+    print ("error:", e)
