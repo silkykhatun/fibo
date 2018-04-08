@@ -1,0 +1,12 @@
+
+.login-div{
+    background-color: #fff;
+    min-height: 225px;
+    padding: 10px 43px 20px 43px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top:5%;
+    -webkit-box-shadow: 7px 10px 38px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 10px 38px -1px rgba(0,0,0,0.75);
+    box-shadow: 7px 10px 38px -1px rgba(0,0,0,0.75);
+}

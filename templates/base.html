@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% block title %}
+        {% endblock %}
+
+
+        <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/bootstrap.min.css">
+        {% block css-required %}
+        {% endblock %}
+
+        <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/style.css?">
+    </head>
+    
+    <!-- Main Body -->
+    <body  id="page-top" class="index" ng-app="demoapp">
+        <div style="min-height:10px;"></div>
+        <!-- Top Nav -->
+        <div class="container">
+            <div class="row" style="min-height:400px">
+                {% block home-marquee %}
+                    <!-- <h2> HOME-MARQUEE </h2> -->
+                {% endblock %}
+            </div>
+        </div>
+        <!-- Main Footer -->
+    </body>
+
+    {% block url-required %}
+    <script>
+        var GET_FIBO = '{% url "getFibo" %}';
+    </script>
+    {% endblock %}
+    <script type="text/javascript" language="javascript" src="{% get_static_prefix %}js/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="{% get_static_prefix %}js/bootstrap.min.js"></script>
+    
+
+    {% block js-required %}
+    {% endblock %}
+    
+</html>

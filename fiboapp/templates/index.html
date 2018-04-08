@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %}
+{% block title %}
+	<title>Welcome Home</title>
+{% endblock %}
+
+
+{% block home-marquee %}
+<div class="col-md-12" id="blog-div">
+	<form class="form-horizontal" action='{% url "getFibo" %}'>
+		<div class="form-group">
+	        <div class="col-md-10">
+	          <input placeholder="nth number" required='true' type="number" name="number" maxlength="50000" id="id_number" class="bn-input">
+	        </div>
+	    </div>
+		<a href="javascript:void(0);" onclick="get_fibo()" class="btn btn-info">Show</a>
+		<!-- <button type='submit' class="btn btn-success">submit</button> -->
+	</form>
+	<div class="col-md-12" id="res-div">
+		
+	</div>
+	<div class="col-md-12" id="time-div">
+	</div>
+</div>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"></div>
+{% endblock %}
+
+{% block js-required %}
+<script src="{% get_static_prefix %}js/app.js"></script>
+{% endblock %}
+
+{% block css-required %}
+<style type="text/css">
+</style>
+{% endblock %}
